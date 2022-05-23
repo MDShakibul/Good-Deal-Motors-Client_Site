@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Pages/Home/Home';
+import Purchases from './Pages/Home/Purchases';
 import Login from './Pages/Login/Login';
 import Registration from './Pages/Login/Registration';
 import RequireAuth from './Pages/Login/RequireAuth';
@@ -19,6 +20,7 @@ function App() {
         } />
         <Route path="/login" element={<Login />}/>
         <Route path="/registration" element={<Registration />}/>
+        <Route path="/purchase/:id" element={<Purchases />}/>
       </Routes>
       <Footer></Footer>
     </div>
