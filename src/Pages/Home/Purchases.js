@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 
 const Purchases = () => {
@@ -42,7 +44,27 @@ const [count, setCount] = useState(100);
     let quantity = document.getElementById('quantity').value;
     let total_price = document.getElementById('total_price').value;
     
-    console.log(data.name,quantity,total_price)};
+    const user_info ={
+        user_name: data.name,
+        user_email: data.email,
+        quantity: quantity,
+        totalPrice: total_price,
+        address: data.address,
+        contact_number: data.contact_number
+    }
+
+    axios
+      .post("https://powerful-harbor-56786.herokuapp.com/newbook", user_info)
+      .then((response) => {
+        const { data } = response;
+        if (data.insertedId) {
+          toast("Items added successfully.");
+           document.getElementsByTagName("input").value = "";
+        }
+      });
+    
+
+};
 
   return (
     <div className="grid lg:grid-cols-2 sm:grid-cols-1 lg:px-40 my-16">
@@ -138,7 +160,7 @@ const [count, setCount] = useState(100);
                 />
                 </div>
               <input
-                className="btn w-full mx-auto text-white btn-success"
+                className="btn w-full mx-auto text-white btn-success mt-6"
                 type="submit"
                 value="Done"
                 disabled={disabled}

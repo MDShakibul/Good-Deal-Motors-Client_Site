@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { ToastContainer } from 'react-toastify';
 import Home from './Pages/Home/Home';
 import Purchases from './Pages/Home/Purchases';
 import Login from './Pages/Login/Login';
@@ -23,6 +24,7 @@ function App() {
         <Route path="/purchase/:id" element={<Purchases />}/>
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
