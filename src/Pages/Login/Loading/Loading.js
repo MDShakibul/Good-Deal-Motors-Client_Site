@@ -4,17 +4,17 @@ import './Loading.css'
 const Loading = () => {
   return (
     <div className="h-80">
-    <h1>
-    <span className="let1">l</span>  
-    <span className="let2">o</span>  
-    <span className="let3">a</span>  
-    <span className="let4">d</span>  
-    <span className="let5">i</span>  
-    <span className="let6">n</span>  
-    <span className="let7">g</span>  
-    <span className="let8">.</span>  
-    <span className="let9">.</span>  
-    <span className="let10">.</span>  
+    <h1 className="loader">
+    <span className="let1 loading">l</span>  
+    <span className="let2 loading">o</span>  
+    <span className="let3 loading">a</span>  
+    <span className="let4 loading">d</span>  
+    <span className="let5 loading">i</span>  
+    <span className="let6 loading">n</span>  
+    <span className="let7 loading">g</span>  
+    <span className="let8 loading">.</span>  
+    <span className="let9 loading">.</span>  
+    <span className="let10 loading">.</span>  
   </h1>
     </div>
   );
