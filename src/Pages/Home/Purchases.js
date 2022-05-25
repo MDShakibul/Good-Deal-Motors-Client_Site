@@ -20,7 +20,7 @@ const Purchases = () => {
 
 const [count, setCount] = useState(100);
 
-   console.log(count)
+
   const [disabled, setDisabled] = useState(false);
 
   const handleInc =()=>{setCount(count+1)};
@@ -53,15 +53,21 @@ const [count, setCount] = useState(100);
         contact_number: data.contact_number
     }
 
-    axios
-      .post("https://powerful-harbor-56786.herokuapp.com/newbook", user_info)
-      .then((response) => {
-        const { data } = response;
-        if (data.insertedId) {
-          toast("Items added successfully.");
-           document.getElementsByTagName("input").value = "";
-        }
-      });
+      fetch("http://localhost:5000/product",{
+          method: "POST",
+          headers:{
+              "content-type" : "application/json",
+          },
+          body: JSON.stringify(user_info)
+      })
+      .then(res => res.json())
+      .then(data => {
+          if(data){
+              console.log('ok');
+            toast("Items added successfully.");
+             document.getElementsByTagName("input").value = "";
+          }
+      })
     
 
 };
