@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from 'react-query';
 import auth from "../../firebase.init";
 
 const MyOrders = () => {
@@ -14,6 +15,22 @@ const MyOrders = () => {
                 .then(data => setOrders(data));
         }
     }, [user])
+
+    const handelDelete = (id) => {
+        const proceed = window.confirm("Are you sure you want to delete it");
+    
+        if (proceed) {
+          const url = `http://localhost:5000/order/${id}`;
+          fetch(url, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+            });
+        }
+      };
+
     return (
         <div>
             <h2 className='text-2xl text-lime-600 py-5'>My Orders{orders.length}</h2>
@@ -43,7 +60,7 @@ const MyOrders = () => {
                                 <td>{order.total_price}</td>
                                 <td>
                                 <button className="btn btn-xs btn-error mr-1">Pay</button>
-                                <button className="btn btn-xs btn-success">Cancel</button>
+                                <button className="btn btn-xs btn-success" onClick={() => handelDelete(order._id)}>Cancel</button>
                                 </td>
                             </tr>)
                         }

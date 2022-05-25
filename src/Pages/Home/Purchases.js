@@ -50,13 +50,6 @@ const [count, setCount] = useState(100);
     let total_price = document.getElementById('total_price').value;
     
     const user_info ={
-     /*  product_name: product_name,
-        user_name: data.name,
-        user_email: data.email,
-        quantity: quantity,
-        totalPrice: total_price,
-        address: data.address,
-        contact_number: data.contact_number */
 
         name:event.target.name.value,
         email:event.target.email.value,
@@ -79,7 +72,7 @@ const [count, setCount] = useState(100);
       .then(data => {
           if(data){
             toast("Items added successfully.");
-            // event.reset();
+            event.target.reset();
           }
       })
 
