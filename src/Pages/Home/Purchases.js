@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
+import auth from "../../firebase.init";
 
 const Purchases = () => {
   const [product, setProduct] = useState("");
   const { id } = useParams();
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
     fetch(`http://localhost:5000/product/${id}`)
@@ -40,17 +43,29 @@ const [count, setCount] = useState(100);
     handleSubmit,
   } = useForm();
 
-  const onSubmit = data => {
+  const onSubmit = event => {
+
+    event.preventDefault();
     let quantity = document.getElementById('quantity').value;
     let total_price = document.getElementById('total_price').value;
     
     const user_info ={
+     /*  product_name: product_name,
         user_name: data.name,
         user_email: data.email,
         quantity: quantity,
         totalPrice: total_price,
         address: data.address,
-        contact_number: data.contact_number
+        contact_number: data.contact_number */
+
+        name:event.target.name.value,
+        email:event.target.email.value,
+        product_name:event.target.product_name.value,
+        address:event.target.address.value,
+        contact_number:event.target.contact_number.value,
+        quantity,
+        total_price
+        
     }
 
       fetch("http://localhost:5000/product",{
@@ -63,11 +78,11 @@ const [count, setCount] = useState(100);
       .then(res => res.json())
       .then(data => {
           if(data){
-              console.log('ok');
             toast("Items added successfully.");
-             document.getElementsByTagName("input").value = "";
+            // event.reset();
           }
       })
+
     
 
 };
@@ -78,6 +93,7 @@ const [count, setCount] = useState(100);
         <figure className="px-10 pt-10">
           <img
             className="rounded-xl"
+            id='product_name'
             style={{ height: "200px", width: "350px" }}
             src={product.img}
             alt=""
@@ -116,62 +132,23 @@ const [count, setCount] = useState(100);
         
 
             <br />
-          <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="form-control w-100">
-                <label className="label">
-                  <p className="label-text">name</p>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Type Here"
-                  className="input input-bordered w-100"
-                  {...register("name")}
-                />
-              </div>
+        
 
-              <div className="form-control w-100">
-                <label className="label">
-                  <p className="label-text">Email</p>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Type Here"
-                  className="input input-bordered w-100"
-                  {...register("email")}
-                />
-              </div>
+          <form onSubmit={onSubmit}>
+          <label className='block' htmlFor="">Name:</label>
+          <input type="text" id='name' name='name' value={user?.displayName} className="input input-bordered w-full max-w-xs" disabled readOnly />
+          <label className='block mt-2' htmlFor="">Email:</label>
+          <input type="email" id='email' name='email' value={user?.email} disabled readOnly className="input input-bordered w-full max-w-xs mb-2" />
+          <label className='block mt-2' htmlFor="">Product Name:</label>
+          <input type="text" id='product' name='product_name' value={product?.name} disabled readOnly className="input input-bordered w-full max-w-xs mb-2" />
+          <label className='block mt-2' htmlFor="">Address</label>
+          <input type="text" id='address' name='address' placeholder="Address" className="input input-bordered w-full max-w-xs mt-2 mb-2" required />
+          <label className='block mt-2' htmlFor="">Contact Number</label>
+          <input type="text" id='phone' name='contact_number' placeholder="Contact number" className="input input-bordered w-full max-w-xs mb-2" required />
 
-              <div className="form-control w-100">
-                <label className="label">
-                  <p className="label-text">Address</p>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Type Here"
-                  className="input input-bordered w-100"
-                  {...register("address")}
-                />
-                </div>
-
-
-                <div className="form-control w-100">
-                <label className="label">
-                  <p className="label-text">Contact Number</p>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Type Here"
-                  className="input input-bordered w-100"
-                  {...register("contact_number")}
-                />
-                </div>
-              <input
-                className="btn w-full mx-auto text-white btn-success mt-6"
-                type="submit"
-                value="Done"
-                disabled={disabled}
-              />
-            </form>
+          <input type="submit" value='Submit' className="btn w-full mx-auto text-white btn-success mt-6" disabled={disabled}/>
+          
+      </form>
         </div>
       </div>
     </div>
