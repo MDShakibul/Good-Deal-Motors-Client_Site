@@ -16,18 +16,18 @@ const Portfolio = () => {
             <small>
               {" "}
               Technology: HTML,CSS,Bootstrap,Tailwind
-              CSS,javascript,react,es6,node js,express
-              js,jwt,googleFirebase,MongoDB{" "}
+              CSS,javascript,React JS,ES6,Node js,Express
+              js,jwt,googleFirebase,MongoDB, Laravel{" "}
             </small>
           </p>
           <p>
-            Project1: <a href="">projectname</a>{" "}
+            Project1: <a href="https://boi-ghor-cc8e7.web.app/">Boi Ghor</a>{" "}
           </p>
           <p>
-            Project2: <a href="">projectname</a>{" "}
+            Project2: <a href="https://home-tutor-f9e23.web.app/">Home Tutor</a>{" "}
           </p>
           <p>
-            Project3: <a href="">projectname</a>{" "}
+            Project3: <a href="https://mdshakibul.github.io/WeatherAppNodeJS/home.html">Weather App</a>{" "}
           </p>
         </div>
       </div>

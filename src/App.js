@@ -54,7 +54,7 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />}/>
         <Route path="/purchase/:id" element={
           <RequireAuth> <Purchases /></RequireAuth>}/>
-          
+          <Route path="*" element={<NotFound />}/>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>

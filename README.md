@@ -1,8 +1,10 @@
 # Getting Started with Create React App
+#Good Deal Motors
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [https://good-deal-motors.web.app/](https://good-deal-motors.web.app/).
 
 ## Available Scripts
+
 
 In the project directory, you can run:
 
@@ -10,6 +12,12 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### website's different features and functionality.
+* Log In and Registration
+* Sell Product
+* Admin management system
+* Make admin system
+* Very user Friendly
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
