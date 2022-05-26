@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from './Loading/Loading';
+import useToken from '../../hooks/useToken';
 const Registration = () => {
   const [passwordShown, setPasswordShown] = useState(false);
 
@@ -31,6 +32,7 @@ const Registration = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [token] = useToken(googleUser || user);
 
     const navigate = useNavigate();
 
@@ -43,9 +45,10 @@ const Registration = () => {
         signUpErrorMessage = <p className="text-red-700">{googleError?.message || error?.message}</p>; 
     }
 
-    if(googleUser || user){
-        navigate('/');
-      }
+    if (token) {
+      navigate('/');
+  }
+
    
 
     const onSubmit = async data => {

@@ -1,19 +1,28 @@
-import React from 'react';
+import { jsonEval } from '@firebase/util';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Login/Loading/Loading';
 import SingleUser from './SingleUser';
 
 const AllUsers = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    /* const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
-    }).then(res => res.json()));
+    }).then(res => res.json())); 
 
-    if (isLoading) {
+     if (isLoading) {
         return <Loading></Loading>
-    }
+    } */
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/user')
+        .then(res => res.json())
+        .then(data => setUsers(data))
+    },[]); 
 
 
     return (
@@ -35,7 +44,6 @@ const AllUsers = () => {
                                 key={user._id}
                                 index={index}
                                 user={user}
-                                refetch={refetch}
                             ></SingleUser>)
                         }
                     </tbody>

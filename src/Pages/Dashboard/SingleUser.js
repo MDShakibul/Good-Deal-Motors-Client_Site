@@ -20,7 +20,6 @@ const SingleUser = ({ user, index, refetch }) => {
             })
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    refetch();
                     toast.success('Successfully admin added');
                 }
             })

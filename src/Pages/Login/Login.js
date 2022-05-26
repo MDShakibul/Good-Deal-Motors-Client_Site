@@ -8,6 +8,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "./Loading/Loading";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -17,6 +18,12 @@ const Login = () => {
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+    const [token] = useToken(googleUser || user);
+    useEffect(() => {
+      if (token) {
+          navigate('/');
+      }
+  }, [token, navigate])
 
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePassword = () => {
@@ -33,6 +40,8 @@ const Login = () => {
     return <Loading></Loading>
   }
 
+
+
  /*    let from = location.state?.from?.pathname || "/";
 
 
@@ -48,9 +57,11 @@ const Login = () => {
     
     let from = location.state?.from?.pathname || "/";
 
-    if(googleUser || user){
+    /* if(googleUser || user){
       navigate(from, { replace: true });
-    }
+    } */
+
+    
 
 
   let loginErrorMessage;

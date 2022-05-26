@@ -17,8 +17,13 @@ import AddProduct from './Pages/Dashboard/AddProduct';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 import ManageAllOrders from './Pages/Dashboard/ManageAllOrders';
 import AllUsers from './Pages/Dashboard/AllUsers';
+import Blog from './Pages/Blog/Blog';
+import Portfolio from './Pages/Portfolio/Portfolio';
+
+import RequireAdmin from './Pages/Login/RequireAdmin';
 
 function App() {
+  
   return (
     <div className="">
       <Header></Header>
@@ -35,15 +40,19 @@ function App() {
             <Dashboard></Dashboard>
           /* </RequireAuth> */
         }>
-          <Route index element={<MyOrders></MyOrders>}></Route>
-          <Route path='review' element={<AddReview></AddReview>}></Route>
+           <Route index element={<MyOrders></MyOrders>}></Route>
+           <Route path='review' element={<AddReview></AddReview>}></Route>
           <Route path='profile' element={<MyProfile></MyProfile>}></Route>
-          <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
-          <Route path='manageProducts' element={<ManageProducts></ManageProducts>}></Route>
-          <Route path='manageOrders' element={<ManageAllOrders></ManageAllOrders>}></Route>
-          <Route path='allUsers' element={<AllUsers></AllUsers>}></Route>
+           <Route path='addProduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
+           <Route path='manageProducts' element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
+           <Route path='manageOrders' element={<RequireAdmin><ManageAllOrders></ManageAllOrders></RequireAdmin>}></Route>
+           <Route path='allUsers' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
+
+          
         </Route>
         <Route path="/more_products" element={<MoreProducts />}/>
+        <Route path="/blog" element={<Blog />}/>
+        <Route path="/portfolio" element={<Portfolio />}/>
         <Route path="/purchase/:id" element={<Purchases />}/>
       </Routes>
       <Footer></Footer>
