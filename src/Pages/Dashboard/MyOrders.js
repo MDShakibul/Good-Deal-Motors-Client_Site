@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import auth from "../../firebase.init";
+import Swal from 'sweetalert2'
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
@@ -17,10 +18,17 @@ const MyOrders = () => {
     }, [user])
 
     const handelDelete = (id) => {
-        const proceed = window.confirm("Are you sure you want to delete it");
-    
-        if (proceed) {
-          const url = `http://localhost:5000/order/${id}`;
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                const url = `http://localhost:5000/order/${id}`;
           fetch(url, {
             method: "DELETE",
           })
@@ -28,7 +36,15 @@ const MyOrders = () => {
             .then((data) => {
               console.log(data);
             });
-        }
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            }
+          })
+    
+        
       };
 
     return (
