@@ -29,12 +29,14 @@ const [count, setCount] = useState(100);
   const handleInc =()=>{setCount(count+1)};
   const handelDec =()=>{setCount(count-1);};
 
+  const ava_product = parseInt(product.available)
+
   useEffect(()=>{
-      if(count >= 100)
+      if(count >= 100 || ava_product < count)
       setDisabled(false);
       else
       setDisabled(true);
-  },[count]);
+  },[count, ava_product]);
 
   let totalPrice = parseInt(product.price) * count;
 

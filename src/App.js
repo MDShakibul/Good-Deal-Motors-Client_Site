@@ -21,6 +21,7 @@ import Blog from './Pages/Blog/Blog';
 import Portfolio from './Pages/Portfolio/Portfolio';
 
 import RequireAdmin from './Pages/Login/RequireAdmin';
+import NotFound from './Shared/NotFound';
 
 function App() {
   
@@ -29,16 +30,14 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={
-          /* <RequireAuth> */
           <Home />
-          /* </RequireAuth> */
         } />
         <Route path="/login" element={<Login />}/>
         <Route path="/registration" element={<Registration />}/>
         <Route path='/dashboard' element={
-          /* <RequireAuth> */
+           <RequireAuth> 
             <Dashboard></Dashboard>
-          /* </RequireAuth> */
+          </RequireAuth>
         }>
            <Route index element={<MyOrders></MyOrders>}></Route>
            <Route path='review' element={<AddReview></AddReview>}></Route>
@@ -53,7 +52,9 @@ function App() {
         <Route path="/more_products" element={<MoreProducts />}/>
         <Route path="/blog" element={<Blog />}/>
         <Route path="/portfolio" element={<Portfolio />}/>
-        <Route path="/purchase/:id" element={<Purchases />}/>
+        <Route path="/purchase/:id" element={
+          <RequireAuth> <Purchases /></RequireAuth>}/>
+          
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>
