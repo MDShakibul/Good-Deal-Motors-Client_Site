@@ -118,6 +118,7 @@ const Purchases = () => {
               +
             </button>
           </div>
+          <p className="text-error"><small>please order atlist {product.minimum} quantity </small></p>
 
           <div className="flex mt-6">
             <p className="pr-12">Total Price: </p>
@@ -140,7 +141,7 @@ const Purchases = () => {
               id="name"
               name="name"
               value={user?.displayName}
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full"
               disabled
               readOnly
             />
@@ -154,7 +155,7 @@ const Purchases = () => {
               value={user?.email}
               disabled
               readOnly
-              className="input input-bordered w-full max-w-xs mb-2"
+              className="input input-bordered w-full  mb-2"
             />
             <label className="block mt-2" htmlFor="">
               Product Name:
@@ -166,7 +167,7 @@ const Purchases = () => {
               value={product?.name}
               disabled
               readOnly
-              className="input input-bordered w-full max-w-xs mb-2"
+              className="input input-bordered w-full  mb-2"
             />
             <label className="block mt-2" htmlFor="">
               Address
@@ -176,7 +177,7 @@ const Purchases = () => {
               id="address"
               name="address"
               placeholder="Address"
-              className="input input-bordered w-full max-w-xs mt-2 mb-2"
+              className="input input-bordered w-full  mt-2 mb-2"
               required
             />
             <label className="block mt-2" htmlFor="">
@@ -187,7 +188,7 @@ const Purchases = () => {
               id="phone"
               name="contact_number"
               placeholder="Contact number"
-              className="input input-bordered w-full max-w-xs mb-2"
+              className="input input-bordered w-full  mb-2"
               required
             />
 
