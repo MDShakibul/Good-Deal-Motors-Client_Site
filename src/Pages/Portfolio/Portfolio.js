@@ -21,13 +21,13 @@ const Portfolio = () => {
             </small>
           </p>
           <p>
-            Project1: <a href="https://boi-ghor-cc8e7.web.app/">Boi Ghor: https://boi-ghor-cc8e7.web.app/</a>{" "}
+            Project1: Boi Ghor <a href="https://boi-ghor-cc8e7.web.app/">https://boi-ghor-cc8e7.web.app/</a>{" "}
           </p>
           <p>
-            Project2: <a href="https://home-tutor-f9e23.web.app/">Home Tutor: https://home-tutor-f9e23.web.app/</a>{" "}
+            Project2: Home Tutor<a href="https://home-tutor-f9e23.web.app/">https://home-tutor-f9e23.web.app/</a>{" "}
           </p>
           <p>
-            Project3: <a href="https://mdshakibul.github.io/WeatherAppNodeJS/home.html">Weather App: https://mdshakibul.github.io/WeatherAppNodeJS/home.html</a>{" "}
+            Project3: Weather App<a href="https://mdshakibul.github.io/WeatherAppNodeJS/home.html">https://mdshakibul.github.io/WeatherAppNodeJS/home.html</a>{" "}
           </p>
         </div>
       </div>
