@@ -7,7 +7,7 @@ const Portfolio = () => {
         <div className="card-body items-center text-center">
           <h2 className="card-title">Name: Shakibul Islam</h2>
           <p>
-            <small> Email: </small>
+            <small> Email: shakib6610@gmail.com</small>
           </p>
           <p>
             <small>Education: 4 Year B.Sc in C.S.E </small>
@@ -21,13 +21,13 @@ const Portfolio = () => {
             </small>
           </p>
           <p>
-            Project1: <a href="https://boi-ghor-cc8e7.web.app/">Boi Ghor</a>{" "}
+            Project1: <a href="https://boi-ghor-cc8e7.web.app/">Boi Ghor: https://boi-ghor-cc8e7.web.app/</a>{" "}
           </p>
           <p>
-            Project2: <a href="https://home-tutor-f9e23.web.app/">Home Tutor</a>{" "}
+            Project2: <a href="https://home-tutor-f9e23.web.app/">Home Tutor: https://home-tutor-f9e23.web.app/</a>{" "}
           </p>
           <p>
-            Project3: <a href="https://mdshakibul.github.io/WeatherAppNodeJS/home.html">Weather App</a>{" "}
+            Project3: <a href="https://mdshakibul.github.io/WeatherAppNodeJS/home.html">Weather App: https://mdshakibul.github.io/WeatherAppNodeJS/home.html</a>{" "}
           </p>
         </div>
       </div>

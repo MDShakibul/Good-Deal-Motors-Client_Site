@@ -52,6 +52,7 @@ function App() {
         <Route path="/more_products" element={<MoreProducts />}/>
         <Route path="/blog" element={<Blog />}/>
         <Route path="/portfolio" element={<Portfolio />}/>
+        <Route path="/purchase" element={<RequireAuth> <Purchases /></RequireAuth>}/>
         <Route path="/purchase/:id" element={
           <RequireAuth> <Purchases /></RequireAuth>}/>
           <Route path="*" element={<NotFound />}/>
