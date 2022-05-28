@@ -38,7 +38,7 @@ const MyProfile = () => {
         `https://polar-mountain-70911.herokuapp.com/show_myprofile?user=${user?.email}`
       )
         .then((res) => res.json())
-        .then((data) => setProfile(data));
+        .then((data) => setProfile(data[0]));
     }
   }, [user]);
 
@@ -46,7 +46,7 @@ const MyProfile = () => {
     <div>
       <div>
         <p>Name: {profile?.name} </p>
-        <p>Email: {profile?.email}</p>
+        <p>Email: {user?.email}</p>
         <p>Location: {profile?.location}</p>
         <p>Contact: {profile?.contact}</p>
         <p>Details: {profile?.details}</p>
