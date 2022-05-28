@@ -2,11 +2,11 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <div className="pl-10 pr-10 ml-10 mr-10">
-      <div className="mb-2 mt-2">
+    <div className="px-16">
+      <div className="mt-12">
         <p>
-          <span className="text-rose-900">
-            Q5. How does prototypical inheritance work?
+          <span className="text-orange-900 text-2xl">
+            Q1. How does prototypical inheritance work?
           </span>
           <br />
           Ans: The Prototypal Inheritance is a feature in javascript used to add
@@ -14,14 +14,13 @@ const Blog = () => {
           can inherit the properties and methods of another object.
           Traditionally, in order to get and set the [[Prototype]] of an object,
           we use Object.getPrototypeOf and Object.setPrototypeOf. Nowadays, in
-          modern language, it is being set using __proto__.
+          modern language.
         </p>
       </div>
-      <br />
 
-      <div>
+      <div className="mt-12">
         <p>
-          <span className="text-rose-900">
+          <span className="text-orange-900 text-2xl">
             Q2. What are the different ways to manage a state in a React
             application?
           </span>
@@ -43,10 +42,10 @@ const Blog = () => {
           and query parameters.
         </p>
       </div>
-      <hr />
-      <div className="mb-2 mt-2">
+      
+      <div className="mt-12">
         <p>
-          <span className="text-rose-900">
+          <span className="text-orange-900 text-2xl">
             Q3. Why should we not update the state directly?
           </span>
           <br />
@@ -58,10 +57,10 @@ const Blog = () => {
           across all components.
         </p>
       </div>
-      <div className="mb-2 mt-2">
+      <div className="mt-12">
         <p>
-          <span className="text-rose-900">
-            Q1. How will you improve the performance of a React Application?
+          <span className="text-orange-900 text-2xl ">
+            Q4. How will you improve the performance of a React Application?
           </span>
           <br />
           Ans: Keeping component state local where necessary. Memoizing React
@@ -70,12 +69,12 @@ const Blog = () => {
           loading images in React.
         </p>
       </div>
-      <hr />
-      <hr />
-      <div>
+      
+      
+      <div className="mt-12">
         <p>
-          <span className="text-rose-900">
-            Q4. What is a unit test? Why should write unit tests?
+          <span className="text-orange-900 text-2xl">
+            Q5. What is a unit test? Why should write unit tests?
           </span>
           <br />
           UNIT TESTING is a type of software testing where individual units or
