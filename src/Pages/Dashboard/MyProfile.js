@@ -45,11 +45,11 @@ const MyProfile = () => {
   return (
     <div>
       <div>
-        <p>Name: {profile[0]?.name} </p>
-        <p>Email: {profile[0]?.email}</p>
-        <p>Location: {profile[0]?.location}</p>
-        <p>Contact: {profile[0]?.contact}</p>
-        <p>Details: {profile[0]?.details}</p>
+        <p>Name: {profile?.name} </p>
+        <p>Email: {profile?.email}</p>
+        <p>Location: {profile?.location}</p>
+        <p>Contact: {profile?.contact}</p>
+        <p>Details: {profile?.details}</p>
       </div>
       <div className="flex justify-center items-center mt-3">
         <form onSubmit={onSubmit}>
