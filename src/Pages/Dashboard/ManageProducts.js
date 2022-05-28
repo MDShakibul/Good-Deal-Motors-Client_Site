@@ -49,7 +49,7 @@ const ManageProducts = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product, index) => (
+            {products.map((product, index) => ( 
               <tr className="hover">
                 <th>{index + 1}</th>
                 <td>{product.name}</td>

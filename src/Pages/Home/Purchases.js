@@ -118,7 +118,7 @@ const Purchases = () => {
               +
             </button>
           </div>
-          <p className="text-error"><small>please order atlist {product.minimum} quantity </small></p>
+          <p className="text-error"><small>please order at list {product.minimum} quantity </small></p>
 
           <div className="flex mt-6">
             <p className="pr-12">Total Price: </p>

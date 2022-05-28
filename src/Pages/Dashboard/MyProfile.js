@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const MyProfile = () => {
+  const [profile, setProfile] = useState();
+  const [user] = useAuthState(auth);
   const onSubmit = (event) => {
     event.preventDefault();
     const profile = {
@@ -9,7 +13,7 @@ const MyProfile = () => {
       email: event.target.email.value,
       location: event.target.location.value,
       contact: event.target.contact.value,
-      github: event.target.github.value,
+      details: event.target.details.value,
     };
 
     fetch("https://polar-mountain-70911.herokuapp.com/myprofile", {
@@ -28,16 +32,24 @@ const MyProfile = () => {
       });
   };
 
+  useEffect(() => {
+    if (user) {
+      fetch(
+        `https://polar-mountain-70911.herokuapp.com/show_myprofile?user=${user?.email}`
+      )
+        .then((res) => res.json())
+        .then((data) => setProfile(data));
+    }
+  }, [user]);
+
   return (
     <div>
-      <h2>Welcome To Your Profile</h2>
-
       <div>
-        <p>Name: </p>
-        <p>Email: </p>
-        <p>Location: </p>
-        <p>Contact: </p>
-        <p>Github Link: </p>
+        <p>Name: {profile[0]?.name} </p>
+        <p>Email: {profile[0]?.email}</p>
+        <p>Location: {profile[0]?.location}</p>
+        <p>Contact: {profile[0]?.contact}</p>
+        <p>Details: {profile[0]?.details}</p>
       </div>
       <div className="flex justify-center items-center mt-3">
         <form onSubmit={onSubmit}>
@@ -50,6 +62,9 @@ const MyProfile = () => {
           <input
             type="email"
             name="email"
+            value={user?.email}
+            disabled
+            readOnly
             placeholder="Email here"
             className="input input-bordered w-full mx-auto mt-2 mb-2"
           />
@@ -67,8 +82,8 @@ const MyProfile = () => {
           />
           <input
             type="text"
-            name="github"
-            placeholder="Your Github"
+            name="details"
+            placeholder="Your details"
             className="input input-bordered w-full mx-auto mt-2 mb-2"
           />
           <input
